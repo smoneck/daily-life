@@ -12,6 +12,20 @@ $ genpw 10 username
 Iougleicke
 ```
 
+## lnmv
+Moves a file but creates a symlink in place.
+
+```bash
+$ ll
+drwx------ 2 stephan users 40 Apr  7 20:56 7SKKnN
+-rw------- 1 stephan users  6 Apr  7 20:57 test
+
+$ lnmv test 7SKKnN
+$ ll
+drwx------ 2 stephan users 60 Apr  7 20:58 7SKKnN
+lrwxrwxrwx 1 stephan users 23 Apr  7 20:58 test -> /tmp/zRzOjz/7SKKnN/test
+```
+
 ## strconv
 strconv converts a string with spaces and non-ascii into spaceless-ascii.
 
