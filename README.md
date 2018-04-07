@@ -13,7 +13,7 @@ Iougleicke
 ```
 
 ## lnmv
-Moves a file but creates a symlink in place.
+Moves a file but creates a symlink in place. Helps to prevent redundant copies.
 
 ```bash
 $ ll
