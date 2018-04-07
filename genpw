@@ -1,0 +1,39 @@
+#!/bin/bash
+# Version: 1
+
+HELP="Generate password from /dev/urandom\n
+\tUsage: $0 <length> ([readable/username])"
+
+#
+if [ -z $1 ];then
+  echo -e $HELP
+  exit 1
+
+elif [[ $1 == '-h' || $1 == '--help' ]];then
+  echo -e $HELP
+  exit 0
+
+elif [[ $# == 1 ]];then
+  head /dev/urandom | tr -dc 'a-zA-Z0-9-!@#$%^&*()_+~' | fold -w $1 | head -n 1
+
+elif [[ $# == 2 ]];then
+
+  if [[ $2 == "username" ]];then
+    foo="$(head /dev/urandom | tr -dc 'a-zA-Z-!@#$%^&*()_+~' | fold -w $1 | head -n 1 | sed 'y/-!@#$%^&*()_+~/aeiouaeiouaeio/')"
+    foo="$(tr '[:lower:]' '[:upper:]' <<< ${foo:0:1})$(tr '[:upper:]' '[:lower:]' <<< ${foo:1})"
+    echo $foo
+
+  elif [[ $2 == "readable" ]];then
+    head /dev/urandom | tr -dc 'a-zA-Z-!@#$%^&*()_+~' | fold -w $1 | head -n 1 | sed 'y/-!@#$%^&*()_+~/aeiouaeiouaeio/'
+    echo https://imgs.xkcd.com/comics/password_strength.png
+
+  else
+    echo -e $HELP
+    exit 1
+
+  fi
+
+else
+  echo -e $HELP
+  exit 1
+fi
