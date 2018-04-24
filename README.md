@@ -1,6 +1,9 @@
 # daily-life
 Handy scripts in/from daily life
 
+## arXiv
+Fetch latest papers from arxiv.org
+
 ## genpw
 Generate passwords and usernames from /dev/urandom using 'a-zA-Z0-9-!@#$%^&*()_+~'
 
