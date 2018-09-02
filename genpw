@@ -6,7 +6,7 @@
 # 4: Added "alpha"
 
 HELP="Generate password from /dev/{u,}random\n
-\tUsage:\t$0 <length>(x<quantity>) ([readable/username/safe])\n\n
+\tUsage:\t$0 <length>(x<quantity>) ([alpha/readable/safe/username])\n\n
 \t -h/--help:\tThis Text\n
 \talpha:\t\tAlphanumeric string (a-zA-Z0-9)\n
 \treadable:\tReplace -!@#$%^&*()_+~ and 0-9 with vocals\n
