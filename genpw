@@ -11,7 +11,7 @@ HELP="Generate password from /dev/{u,}random\n
 \talpha:\t\tAlphanumeric string (a-zA-Z0-9)\n
 \treadable:\tReplace -!@#$%^&*()_+~ and 0-9 with vocals\n
 \tsafe:\t\tUse random instead of urandom\n
-\tusername:\tSame as readable but with uppercase only first letter\n\n
+\tusername:\tSame as readable but with uppercase first letter only\n\n
 Example:\n
 \t$0 8x5 username"
 

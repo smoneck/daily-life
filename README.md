@@ -19,7 +19,7 @@ Vaaaaalues
 alpha:		Alphanumeric string (a-zA-Z0-9)
 readable:	Replace -!@#$%^&*()_+~ and 0-9 with vocals
 safe:		Use random instead of urandom
-username:	Same as readable but with uppercase only first letter
+username:	Same as readable but with uppercase first letter only
 ```
 
 ## lnmv
