@@ -5,14 +5,21 @@ Handy scripts in/from daily life
 Fetch latest papers from arxiv.org
 
 ## genpw
-Generate passwords and usernames from /dev/urandom using 'a-zA-Z0-9-!@#$%^&*()_+~'
+Generate passwords and usernames from /dev/{u,}random using 'a-zA-Z0-9-!@#$%^&*()_+~'
 
 ```bash
 $ genpw 40
 L&bGI~96*dx%YbloSWu6%&iLc!r3VHCcyF!%3N4u
 
-$ genpw 10 username
+$ genpw 10x2 username
 Iougleicke
+Vaaaaalues
+```
+```
+alpha:		Alphanumeric string (a-zA-Z0-9)
+readable:	Replace -!@#$%^&*()_+~ and 0-9 with vocals
+safe:		Use random instead of urandom
+username:	Same as readable but with uppercase only first letter
 ```
 
 ## lnmv
