@@ -1,8 +1,11 @@
 #!/bin/bash
-# Version: 1
+# Version: 2
+#
+# 2: Added "safe" for random
 
 HELP="Generate password from /dev/urandom\n
-\tUsage: $0 <length> ([readable/username])"
+\tUsage:\t$0 <length> ([readable/username/safe])\n
+\t\t$0 -h/--help"
 
 #
 if [ -z $1 ];then
@@ -26,6 +29,16 @@ elif [[ $# == 2 ]];then
   elif [[ $2 == "readable" ]];then
     head /dev/urandom | tr -dc 'a-zA-Z-!@#$%^&*()_+~' | fold -w $1 | head -n 1 | sed 'y/-!@#$%^&*()_+~/aeiouaeiouaeio/'
     echo https://imgs.xkcd.com/comics/password_strength.png
+
+  elif [[ $2 == "safe" ]];then
+    PW=$(head -c $((3*$1)) /dev/random | tr -dc 'a-zA-Z0-9-!@#$%^&*()_+~' | fold -w $1 | head -n 1)
+    while (( ${#PW} < $1 )); do
+      echo $PW, ${#PW}
+      PW=${PW}$(head -c $((3*$1)) /dev/random | tr -dc 'a-zA-Z0-9-!@#$%^&*()_+~' | fold -w $1 | head -n 1)
+      PW="${PW::$1}"
+    done
+    echo $PW
+    echo The crypto nut: https://imgs.xkcd.com/comics/privacy_opinions.png
 
   else
     echo -e $HELP
