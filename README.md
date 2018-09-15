@@ -44,3 +44,10 @@ $ strconv Die Lösung des Problöms ißt Gemüse
 Die_Loesung_des_Probloems_isst_Gemuese
 ```
 
+## telegram-send
+Sends a file or a message string to a preconfigured Telegram bot.
+```bash
+telegram-send <file>/This is a long message
+```
+If the message consists of just one word or path and this word/path refers to an existing file, then a file is send.
+Otherwise a message.
